@@ -4,7 +4,7 @@ import json
 from collections import defaultdict
 
 # get your token from here -> https://api.slack.com/docs/oauth-test-tokens
-token = ''
+token = 'xoxp-2193773949-2195475452-136524510535-f6f60ebd8b4edd02543be60099f29ecc'
 # get top n size files
 topn = 50
 nickname = ''
@@ -109,4 +109,5 @@ sorted_file_size = sorted(file_size_dict.items(), key=lambda x:x[1][3], reverse=
 
 for i, file_size in enumerate(sorted_file_size[:topn]):
     name = check_nick(file_size[1][2])
-    print('%2d위 : %15s\t%50s\t%d' % (i+1, name, file_size[1][0], file_size[1][3]))
+    size = file_size[1][3] / 1024 / 1024
+    print('%2d위 : %15s\t%50s\t%3dMB' % (i+1, name, file_size[1][0], size))

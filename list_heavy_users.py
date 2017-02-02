@@ -101,4 +101,5 @@ sorted_user_size = sorted(user_size_dict.items(), key=lambda x:x[1], reverse=Tru
 
 for i, user_size in enumerate(sorted_user_size):
     name = check_nick(user_size[0])
-    print('%2d위 : %15s\t%d' % (i+1, name, user_size[1]))
+    size = user_size[1] / 1024 / 1024
+    print('%2d위 : %15s\t%3dMB' % (i+1, name, size))
